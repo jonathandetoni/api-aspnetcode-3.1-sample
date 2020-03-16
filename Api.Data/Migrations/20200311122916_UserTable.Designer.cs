@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200311000226_AlterPropertiesTableUser")]
-    partial class AlterPropertiesTableUser
+    [Migration("20200311122916_UserTable")]
+    partial class UserTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

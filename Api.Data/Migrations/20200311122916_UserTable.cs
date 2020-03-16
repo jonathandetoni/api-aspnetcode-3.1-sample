@@ -8,22 +8,23 @@ namespace Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "user",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateAt = table.Column<DateTime>(nullable: true),
-                    Nome = table.Column<string>(maxLength: 100, nullable: true),
-                    Email = table.Column<string>(maxLength: 100, nullable: false)
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    SenhaHash = table.Column<byte[]>(nullable: true),
+                    SenhaSalt = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_user", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_Email",
-                table: "User",
+                name: "IX_user_Email",
+                table: "user",
                 column: "Email",
                 unique: true);
         }
@@ -31,7 +32,7 @@ namespace Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "User");
+                name: "user");
         }
     }
 }
